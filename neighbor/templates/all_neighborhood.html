@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %} {% load humanize %}
+<div class="container">
+    <a href="{% url 'new_neighborhood' %}" class="btn btn-sm btn-info mb-2"> New neighborhood</a>
+    <div class="row">
+        {% for neighborhood in all_neighborhood %}
+        <div class="col-md-4">
+            <div class="card mb-4" style="min-height:340px">
+                <img src="{{ neighborhood.neighborhood_logo.url }}" class="card-img-top" alt="{{ neighborhood.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ neighborhood.name }} ({{neighborhood.location}})</h5>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
