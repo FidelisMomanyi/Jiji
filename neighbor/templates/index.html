@@ -1,0 +1,46 @@
+{%extends 'base.html'%} {% load humanize %} {%block content%}
+
+<div class="container" style="background-color: rgba(255, 255, 255, 0.7);padding-bottom: 2%;">
+    <div class="container" style="margin-top: 5%;">
+        <h1 class="text-center">Businesses Around You</h1>
+        {%for business in businesses%} {%if business.neighborhood.name == user.profile.neighborhood.name%}
+        <div class="card col-xs-6 col-sm-6 col-md-4" style="background-color: rgba(255, 255, 255, 0.7);">
+            <strong class="card-header" style="font-size: 23px;">{{business.business_name | title}}</strong>
+            <div class="card-body text-center">
+                <img class="img-fluid" src="{{business.business_photo.url}}" style="height: 200px;padding: 0;margin: 0;">
+            </div>
+            <div class="card-footer">
+                <p><strong>Business Email: </strong>{{business.business_email}}</p>
+                <p><strong>Location: </strong>{{business.neighborhood.name | title}}</p>
+                <p><strong>Added By: </strong>{{business.user.profile.username}}</p>
+                <p><strong>Added: </strong>{{business.pub_date | naturaltime}}</p>
+            </div>
+        </div>
+        {%endif%} {%endfor%}
+    </div>
+</div>
+
+<div class="container" style="background-color: rgba(255, 255, 255, 0.7);padding-bottom: 2%;">
+    <div class="container" style="margin-top: 5%;">
+        <h1 class="text-center">What's going on around you </h1>
+        {%for post in posts%} {%if current_user.profile.neighborhood.name == post.user.profile.neighborhood.name%}
+        <div class="container">
+            <div class="row">
+                <div class="card col-xs-6 col-sm-6 col-md-6" style="background-color: rgba(255, 255, 255, 0.7);">
+                    <strong class="card-header" style="font-size: 23px;">{{post.user.profile.name | title}}</strong>
+                    <div class="card-body text-center">
+                        <img class="img-fluid" src="{{post.post_image.url}}" style="height: 200px;padding: 0;margin: 0;">
+                    </div>
+                    <div class="card-footer">
+                        <p><strong>Caption: </strong>{{post.caption}}</p>
+                        <p><strong>Added By: </strong>{{post.user.profile.username}}</p>
+                        <p><strong>Added: </strong>{{post.pub_date | naturaltime}}</p>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            {%endif%} {%endfor%}
+        </div>
+    </div>
+</div>
+{%endblock%}
