@@ -1,0 +1,35 @@
+{%extends 'base.html'%}
+
+{%block content%}
+{{block.super}}
+{%include 'navbar.html'%}
+<div class="container" style="height: 83.5vh;">
+    <div class="card" style="margin-top:10vh;padding-top: 3%;padding-bottom: 3%;background-color: rgba(255, 255, 255, 0.7);">
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                {%if user.profile.profile_photo%}
+                <img class="rounded-circle" src="{{user.profile.profile_photo.url}}" style="height:200px;width: 200px;"
+                    alt="No profile pic">
+                {%else%}
+                <p>No profile picture!</p>
+                {%endif%}
+            </div>
+
+
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <strong style="font-size:25px;">{{current_user.username | title}}</strong>
+                <a href='/updateprofile' class="btn btn-primary text-white">Edit profile</a>
+                {%if user.profile.name %}
+                <p style="font-size:23px;"><strong>Name:</strong> {{user.profile.name}}</p>
+                <p style="font-size:23px;"><strong>ID no.:</strong> {{user.profile.national_id}}</p>
+                <p style="font-size:23px;"><strong>Neighborhood:</strong> {{user.profile.neighborhood}}</p>
+                {%else%}
+                <p>No name!</p>
+                {%endif%}
+            </div>
+
+        </div>
+
+    </div>
+{%endblock%}
