@@ -1,0 +1,18 @@
+{%extends 'base.html'%}
+{% load crispy_forms_tags %}
+
+{%block content%}
+{{block.super}}
+<div class="container" style="height: 90vh;">
+    <div class="card update" style="margin-top:10vh;background-color: rgba(255, 255, 255, 0.5);">
+        <h1 class="card-header">Post a Business</h1>
+        <form enctype="multipart/form-data" method="POST" action="" class="card-body">
+            {% csrf_token %}
+            {{ form | crispy }}
+            <input type="submit" class='btn btn-primary' value="Post" style="margin-top: 2%;"/>
+        </form>
+    </div>
+
+
+</div>
+{%endblock%}
