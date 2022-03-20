@@ -30,7 +30,7 @@ class Neighborhood(models.Model):
         neighborhood = cls.objects.filter(user=user)
         return neighborhood
 
-
+    
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE,)
     username = models.CharField(max_length=100)

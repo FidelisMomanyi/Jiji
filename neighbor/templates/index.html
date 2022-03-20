@@ -1,4 +1,4 @@
-{%extends 'base.html'%} {% load humanize %} {%block content%}
+{%extends 'base.html'%} {% load  %} {%block content%}
 
 <div class="container" style="background-color: rgba(255, 255, 255, 0.7);padding-bottom: 2%;">
     <div class="container" style="margin-top: 5%;">
@@ -13,7 +13,7 @@
                 <p><strong>Business Email: </strong>{{business.business_email}}</p>
                 <p><strong>Location: </strong>{{business.neighborhood.name | title}}</p>
                 <p><strong>Added By: </strong>{{business.user.profile.username}}</p>
-                <p><strong>Added: </strong>{{business.pub_date | naturaltime}}</p>
+                <p><strong>Added: </strong>{{business.pub_date}}</p>
             </div>
         </div>
         {%endif%} {%endfor%}
@@ -34,7 +34,7 @@
                     <div class="card-footer">
                         <p><strong>Caption: </strong>{{post.caption}}</p>
                         <p><strong>Added By: </strong>{{post.user.profile.username}}</p>
-                        <p><strong>Added: </strong>{{post.pub_date | naturaltime}}</p>
+                        <p><strong>Added: </strong>{{post.pub_date}}</p>
                         <br>
                     </div>
                 </div>
