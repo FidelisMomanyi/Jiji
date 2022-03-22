@@ -13,6 +13,9 @@ class Neighborhood(models.Model):
     health_contacts = models.CharField(max_length=50)
     police_contacts = models.CharField(max_length=50)
 
+    def __str__(self):
+        return self.name
+
     def create_neighborhood(self):
         self.save()
 
