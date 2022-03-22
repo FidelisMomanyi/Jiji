@@ -23,7 +23,7 @@ def signup(request):
         if form.is_valid():
             form.save()
 
-            return redirect('neighbourhood')
+            return redirect('home')
     else:
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form, 'name': name})
