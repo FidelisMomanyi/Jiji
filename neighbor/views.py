@@ -92,7 +92,6 @@ def all_neighborhood(request):
     params = {
         'all_neighborhood': all_neighborhood,
     }
-
     return render(request, 'all_neighborhood.html', params)
 
     
