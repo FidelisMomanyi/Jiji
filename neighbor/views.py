@@ -23,7 +23,7 @@ def signup(request):
         if form.is_valid():
             form.save()
 
-            return redirect('home')
+            return redirect('neighbourhood')
     else:
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form, 'name': name})
@@ -92,7 +92,7 @@ def all_neighborhood(request):
     params = {
         'all_neighborhood': all_neighborhood,
     }
-    return redirect(request, 'neighborhood')
+
     return render(request, 'all_neighborhood.html', params)
 
     
