@@ -14,7 +14,7 @@ urlpatterns = [
     path('newbusiness/', views.new_business, name='new_business'),
     path('newpost/', views.new_post, name='new_post'),
     path('newneighborhood/', views.new_neighborhood, name='new_neighborhood'),
-    path('', views.all_neighborhood, name='neighborhood'),
+    path('all-neighborhood/', views.all_neighborhood, name='neighborhood'),
 ]
 
 if settings.DEBUG:
